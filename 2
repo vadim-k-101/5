@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main (){
+int n=1;int minimum = 0; int minind;int kol =0; int ind1 = 0; int ind2 = 0;
+int sum = 0;
+
+while(1){ 
+printf("\n\nVvedit kilkist masuviv: ");
+scanf("%d",&n);
+if(n<=0){printf("\n\nVu Velu ne korektne znachennya. Vedit chislo bilshe nullia...\n");continue;}
+
+else{ 
+int i = n;int colCount = n;
+ int a[i];
+for(int i = 0; i < colCount; i++)
+{ printf("a[%d]=", i);
+scanf("%d", &a[i]);
+}
+for(int i = 0; i < colCount; i++){
+    if (abs(a[i]) < a[minimum])
+        {
+            a[minimum] = abs(a[i]);
+            minind = i;
+        }
+}
+printf("Minimal masiv: a[%d] = %d",minind, a[minimum]);
+// 2 zadacha
+for(int i = 0; i < colCount; i++){
+    if((a[i])>0 && kol==0){
+        kol++;
+        ind1 = i;
+    continue;}
+    /*if (kol=0){
+        printf("nemae dodatnih znachenn");break;
+    }*/
+    if((a[i])>0 && kol==1){
+        kol++;
+        ind2 = i;
+    continue;}
+    /*if(kol=1){
+        printf("dodatne chuslo 1. znachennya ne mojlivo obchuslutu");break;
+    }*/
+    if((a[i])>0 && kol>2){
+        kol++;
+        ind2 = i;
+    continue;}
+}
+
+
+
+    if((ind1+1)==ind2){
+    printf("dodatni chusla stoyat duge bluzko");break;}
+    for(i = (i + ind1); i < ind2; i++){
+sum += a[i];
+    }
+printf("suma mij dodatnimu chuslamu = %d",sum);
+break;
+}
+}
+}
